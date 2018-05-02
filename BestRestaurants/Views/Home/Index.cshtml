@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Best Restaurants</title>
+  </head>
+
+  <body>
+
+    <h1>Your best restaurants</h1>
+      <p>Save your restaurants by cuisine</p>
+
+    <form>
+      <select class= "form-control" id="cuisine" required>
+        <option value="1">French</option>
+        <option value="2">Mexican</option>
+        <option value="3">Chinese</option>
+        <option value="4">Italian</option>
+        <option value="5">Brazilian</option>
+        <option value="6">Dutch</option>
+      </select>
+
+      <div>
+        <label for="name">
+          <input type="text" name="name" id= "name" required>
+        </label>
+      </div>
+
+      <select class= "form-control" id="ratings" required>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+
+      <div>
+        <label for="city">
+          <input type="text" name="city" id="city" required>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-success">Save your restaurant!</button>
+
+    </form>
+  </body>
+</html>
