@@ -12,6 +12,7 @@
           <th>Name</th>
           <th>Rating</th>
           <th>City</th>
+          <th>Cuisine Type</th>
         </tr>
         @foreach(var restaurant in Model)
         {
@@ -19,6 +20,7 @@
             <td>@restaurant.GetName()</td>
             <td>@restaurant.GetRating()</td>
             <td>@restaurant.GetCity()</td>
+            <td>@restaurant.GetCuisineName()</td>
           </tr>
         }
       </table>
