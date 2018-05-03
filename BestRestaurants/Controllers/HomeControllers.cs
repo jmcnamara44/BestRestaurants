@@ -10,10 +10,14 @@ namespace BestRestaurants.Controllers
         [HttpGet("/")]
         public ActionResult Index()
         {
-            Restaurant newRestaurant = new Restaurant("mcdonalds", "seattle", 4, 6);
-            newRestaurant.Save();
             // List<Restaurant> RestaurantList = Restaurant.GetAll();
             return View();
+        }
+        [HttpGet("/output")]
+        public ActionResult Output()
+        {
+            List<Restaurant> restaurantList = Restaurant.GetAll();
+            return View(restaurantList);
         }
     }
 }

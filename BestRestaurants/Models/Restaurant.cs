@@ -14,7 +14,7 @@ namespace BestRestaurants.Models
     private int _restaurantId;
     // private static List<Restaurant> _restaurantList = new List<Restaurant> {};
 
-    public Restaurant (string name, string city, int rating, int cuisineId, int restaurantId = 0;)
+    public Restaurant (string name, string city, int rating, int cuisineId, int restaurantId = 0)
     {
       _name = name;
       _city = city;
@@ -88,18 +88,19 @@ namespace BestRestaurants.Models
       List<Restaurant> allRestaurants = new List<Restaurant> {};
       MySqlConnection conn = DB.Connection();
       conn.Open();
-      MySqlConnection cmd = conn.CreateCommand() as MySqlCommand;
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
       cmd.CommandText = @"SELECT * FROM restaurants";
-      MySQLDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
       while (rdr.Read())
       {
         int restaurantId = rdr.GetInt32(0);
         string name = rdr.GetString(1);
         string city = rdr.GetString(2);
-        int rating = rdr.GetInt(3);
-        int cuisineId = rdr.GetInt(4);
+        int rating = rdr.GetInt32(3);
+        int cuisineId = rdr.GetInt32(4);
         Restaurant newRestaurant = new Restaurant (name, city, rating, cuisineId, restaurantId);
-        allRestaurants.Add(newRestaurants);
+        allRestaurants.Add(newRestaurant);
       }
       conn.Close();
       if (conn != null)
@@ -109,12 +110,12 @@ namespace BestRestaurants.Models
       return allRestaurants;
     }
 
-    public void Edit (string newRestaurant)
-    {
-      MySqlConnection conn = DB.Connection();
-      conn.Open();
-      var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"UPDATE restaurants SET name "
-    }
+    // public void Edit (string newRestaurant)
+    // {
+    //   MySqlConnection conn = DB.Connection();
+    //   conn.Open();
+    //   var cmd = conn.CreateCommand() as MySqlCommand;
+    //   cmd.CommandText = @"UPDATE restaurants SET name "
+    // }
   }
 }
